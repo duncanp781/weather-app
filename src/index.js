@@ -41,7 +41,9 @@ async function get_data(location = 'New York City'){
 
 async function process_data(promise_data){
   const data = await promise_data;
+  console.log(data);
   return{
+    country: data.sys.country,
     name: data.name,
     coords: data.coord,
     feels_like: data.main.feels_like,
@@ -61,6 +63,7 @@ async function see_data(location){
 
 function obj_to_c(obj){
   return {
+    country: obj.country,
     name: obj.name,
     coords: obj.coords,
     feels_like: Math.round(k_to_c(obj.feels_like)),
@@ -75,6 +78,7 @@ function obj_to_c(obj){
 
 function obj_to_f(obj){
   return {
+    country: obj.country,
     name: obj.name,
     coords: obj.coords,
     feels_like: Math.round(k_to_f(obj.feels_like)),
@@ -125,7 +129,7 @@ function display(){
   const high = getByClass('temphigh');
   const low = getByClass('templow');
   const feel = getByClass('tempfeel');
-  title.textContent = `${tempObj.name}: ${tempObj.main_desc}`;
+  title.textContent = `${tempObj.name}, ${tempObj.country}: ${tempObj.main_desc}`;
   temp.textContent = tempObj.temp + appender;
   high.textContent = tempObj.temp_max + appender;
   low.textContent = tempObj.temp_min + appender;
