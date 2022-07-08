@@ -27,7 +27,7 @@ inF.addEventListener('click', () => {
 async function get_data(location = 'New York City'){
   try{
     //Get latitude and longitude of location
-    const location_data = await fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + location + '&limit=1&appid=910338b7304957522a845744793da366');
+    const location_data = await fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + location + '&limit=1&appid=910338b7304957522a845744793da366');
     const location_data_json = await location_data.json();
     const [lat,lon]= [location_data_json[0].lat, location_data_json[0].lon];
     //Use the coords to get the weather
