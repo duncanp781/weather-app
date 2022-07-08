@@ -6,23 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <script src="main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  <form id = 'getcity'>
-    <label for="city">
-      Enter your city:
-      <input type="text" name="city" id="city">
-      <button type="submit">Submit</button>
-    </label>
-  </form>
-
-  <div class="display">
-    <span class="title"></span><br>
-    Temperature: <span class="temp"></span><br>
-    High: <span class="temphigh"></span><br>
-    Low: <span class="templow"></span><br>
-    Feels Like: <span class="tempfeel"></span><br>
-  </div>
+  <header>
+    <div class="format">
+      Display in: <div id = 'inC' class = 'select'>C</div> <div id="inF" class = 'select selected'>F</div>
+    </div>
+    
+    <form id = 'getcity'>
+      <label for="city">
+        Enter your city:
+        <input type="text" name="city" id="city">
+        <button type="submit">Submit</button>
+      </label>
+    </form>
+  </header>
+  <main>
+    <div class="display">
+      <span class="title"></span>
+      <span class="entry">Temperature:</span> <span class="temp data"></span>
+      <span class="entry">High:</span> <span class="temphigh data"></span>
+      <span class="entry">Low:</span> <span class="templow data"></span>
+      <span class="entry">Feels Like:</span> <span class="tempfeel data"></span>
+    </div>
+  </main>
 </body>
 </html>
