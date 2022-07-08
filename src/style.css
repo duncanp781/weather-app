@@ -87,13 +87,14 @@ main{
 
 .display{
   background-color: var(--card-bg-color);
-  border: 2px solid var(--card-bg-color);
   border-radius: 8px;
-  padding: 16px;
+  padding: 0;
   display: grid;
   gap: 8px;
-  grid-template-rows: 2fr repeat(4, 1fr);
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, max-content) 1fr;
+  grid-template-columns: repeat(2, minmax(max-content, 1fr)) max-content;
+  overflow: hidden;
+  box-shadow: 6px 6px 16px  4px black;
 }
 
 .display .title{
@@ -101,13 +102,35 @@ main{
   grid-column: 1/-1;
   font-size: 24px;
   font-weight: bold;
+  padding: 16px;
 }
 
 .display .entry{
   font-weight: bold;
+  padding: 0px 16px;
 }
 
 .display .data{
   text-align: right;
+  padding: 0px 16px;
 }
 
+.display .imgContainer{
+  grid-row: 1/-1;
+  grid-column: 3/3;
+  height: max(200px, inherit); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.display .last{
+  padding: 0px 16px 16px 16px;
+}
+
+
+.imgContainer img{
+  height: 100%;
+  object-fit: scale-down;
+}

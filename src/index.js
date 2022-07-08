@@ -104,6 +104,7 @@ form.addEventListener('submit', (e) => {
     .then(resolve => {
       current_loc = resolve;
       display();
+      get_giphy_data(current_loc.main_desc);
    }) 
 });
 
@@ -137,4 +138,14 @@ function getByClass(cls){
   return document.querySelector('.' + cls);
 }
 
-
+async function get_giphy_data(query){
+  const data = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=ml9QhXXS33SxzHC5tOezQ3ZirizRsQEX&s=' + query, {mode: 'cors'})
+  .then(resolve => {
+    return resolve.json();
+  })
+  .then(resolve =>{
+    return resolve.data.images.original.url;
+  });
+  const img = document.getElementById('gif');
+  img.src = await data;
+}
